@@ -1,46 +1,39 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import VDMLogo from "@/public/logo/VDMLogo.png";
 
 const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
-  const [hash, setHash] = useState<string>(
-    typeof window !== "undefined" ? window.location.hash || "#home" : "#home"
-  );
-
-  useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash || "#home");
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
+  const pathname = usePathname();
 
   return (
     <header className="bg-blue-50 sticky w-full top-0 z-50 flex">
       <div className="flex container mx-auto py-4 gap-5 max-w-[1240px] items-center">
         <Image src={VDMLogo} alt="VDM Urban Logo" height={42} />
         <nav className="flex items-center justify-center w-full">
-          <ul className="hidden md:flex justify-center space-x-12 font-medium text-[1.1rem] bg-white py-2 pb-3 px-16 rounded-3xl">
+          <ul className="hidden md:flex justify-center space-x-12 font-medium text-[1.1rem] bg-white py-2 px-16 rounded-3xl">
             {NAV_LINKS.map((link) => {
-              const active = hash === link.href;
+              const active = pathname === link.href;
               return (
                 <li key={link.href} className="relative">
-                  <a
+                  <Link
                     href={link.href}
-                    className={`hover:text-blue-700 hover:scale-105 transition px-1 py-2`}
+                    className={`hover:text-gray-700 transition px-1 py-2`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                   {/* Blue underline bar */}
                   <span
-                    className={`absolute left-0 right-0 -bottom-1 h-[0.2rem] bg-green-800 transition-all duration-500 rounded-2xl ${
-                      active ? "w-[80%] mx-auto" : "w-0"
+                    className={`absolute left-0 right-0 bottom-0 h-1 bg-blue-500 transition-all duration-200 ${
+                      active ? "w-full" : "w-0"
                     }`}
                   />
                 </li>
