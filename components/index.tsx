@@ -5,6 +5,7 @@ import Hero from "./hero";
 import OtherSections from "./otherSections";
 import ChooseUs from "./chooseUs";
 import Testimonial from "./testimonial";
+import Contact from "./contact";
 
 const components = {
   Hero,
@@ -13,6 +14,7 @@ const components = {
   Services,
   ChooseUs,
   Testimonial,
+  Contact,
   // SampleCode,
 };
 

@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <>
       {/* Our Services Section */}
-      <section className="py-24 bg-blue-50/80 mt-12">
+      <section className="py-24 bg-blue-50/80 mt-12" id="services">
         <div className="container mx-auto px-4 max-w-[1240px]">
           <p className="text-center text-slate-500 ">WHAT WE DO</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">

@@ -2,14 +2,14 @@ const ChooseUs = () => {
   return (
     <>
       {/* Why choose US */}
-      <section className="py-16 mt-8">
-        <div className="container mx-auto px-4 max-w-[1240px]">
+      <section className="py-16 mt-8 mb-8" id="why-choose-us">
+        <div className="container mx-auto px-4 max-w-[1080px]">
           <p className="text-center text-slate-500 ">OUR VALUE</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Why Choose Us
           </h2>
-          <div className="grid md:grid-cols-3 gap-16 justify-end">
-            <div className="text-center max-w-[280px]">
+          <div className="grid md:grid-cols-3 gap-8 justify-between">
+            <div className="mx-auto text-center max-w-[280px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
@@ -40,7 +40,7 @@ const ChooseUs = () => {
                 Deep understanding of the Lagos building regulatory framework{" "}
               </p>
             </div>
-            <div className="text-center max-w-[280px]">
+            <div className="mx-auto text-center max-w-[280px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
@@ -63,7 +63,7 @@ const ChooseUs = () => {
                 Professional, field-based inspections and advisory
               </p>
             </div>
-            <div className="text-center max-w-[280px] ">
+            <div className="mx-auto text-center max-w-[280px] ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"

@@ -9,6 +9,7 @@ export default function Home() {
       <components.Services />
       <components.ChooseUs />
       <components.Testimonial />
+      <components.Contact />
     </main>
   );
 }
