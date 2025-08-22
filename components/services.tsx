@@ -10,33 +10,18 @@ const Services = () => {
     <>
       {/* Our Services Section */}
       <section className="py-24 bg-blue-50/80 mt-12" id="services">
-        <div className="container mx-auto px-4 max-w-[1240px]">
+        <div className="container mx-auto px-6 sm:px-8 md:px-10 max-w-[1240px]">
           <p className="text-center text-slate-500 ">WHAT WE DO</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
             Our Core Services
           </h2>
-          <div className="grid md:grid-cols-3 gap-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16">
             {/* Service 1 */}
             <div className="flex gap-4">
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 bg-gray-900 rounded flex items-center justify-center">
-                  {/* <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg> */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    // width="24"
-                    // height="24"
                     viewBox="0 0 24 24"
                     className="w-8 h-8 text-white"
                   >

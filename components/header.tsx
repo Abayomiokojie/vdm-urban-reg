@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import VDMLogo from "@/public/logo/VDMLogo.png";
 
 const NAV_LINKS = [
@@ -11,36 +11,87 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
-  const [hash, setHash] = useState<string>(
-    typeof window !== "undefined" ? window.location.hash || "#home" : "#home"
+  const [activeId, setActiveId] = useState<string>(
+    typeof window !== "undefined"
+      ? (window.location.hash || "#home").slice(1)
+      : "home"
   );
+  const headerRef = useRef<HTMLElement | null>(null);
+  // refs retained only for header height
 
+  // Determine active section based on sticky header offset
   useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash || "#home");
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    if (typeof window === "undefined") return;
+    const ids = NAV_LINKS.map((l) => l.href.slice(1));
+
+    const computeActive = () => {
+      const headerHeight =
+        headerRef.current?.getBoundingClientRect().height || 0;
+      const offset = headerHeight + 8; // small padding below header
+      let current = ids[0] || "home";
+      let currentTop = -Infinity;
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top - offset;
+        // pick the last section whose top is at/above the header offset
+        if (top <= 0 && top > currentTop) {
+          currentTop = top;
+          current = id;
+        }
+      });
+      // If none are above, choose the first section
+      if (currentTop === -Infinity) current = ids[0] || "home";
+      setActiveId((prev) => (prev !== current ? current : prev));
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          computeActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    computeActive();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
+  // no separate slider measurement needed when using per-item underline
+
   return (
-    <header className="bg-blue-50 sticky w-full top-0 z-50 flex">
+    <header
+      ref={headerRef}
+      className="bg-blue-50 sticky w-full top-0 z-51 px-6 sm:px-8 md:px-10"
+    >
       <div className="flex container mx-auto py-4 gap-5 max-w-[1240px] items-center">
         <Image src={VDMLogo} alt="VDM Urban Logo" height={42} />
-        <nav className="flex items-center justify-center w-full">
-          <ul className="hidden md:flex justify-center space-x-12 font-medium text-[1.1rem] bg-white py-2 pb-3 px-16 rounded-3xl">
+        <nav className="flex justify-end md:items-center md:justify-center w-full">
+          <ul className="hidden md:flex relative justify-center space-x-12 font-medium text-[1.1rem] bg-white py-2 pb-3 px-16 rounded-3xl">
             {NAV_LINKS.map((link) => {
-              const active = hash === link.href;
+              const id = link.href.slice(1);
+              const active = activeId === id;
               return (
                 <li key={link.href} className="relative">
                   <a
                     href={link.href}
-                    className={`hover:text-blue-700 hover:scale-105 transition px-1 py-2`}
+                    className={`hover:text-blue-700 transition px-1 py-2 ${
+                      active ? "text-blue-700" : ""
+                    }`}
                   >
                     {link.label}
                   </a>
-                  {/* Blue underline bar */}
                   <span
-                    className={`absolute left-0 right-0 -bottom-1 h-[0.2rem] bg-green-800 transition-all duration-500 rounded-2xl ${
-                      active ? "w-[80%] mx-auto" : "w-0"
+                    className={`pointer-events-none absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-600 rounded-2xl transition-all duration-300 ${
+                      active ? "w-4/5 mx-auto" : "w-0"
                     }`}
                   />
                 </li>
@@ -49,9 +100,9 @@ export default function Header() {
           </ul>
 
           {/* Mobile menu button (kept unchanged) */}
-          <button className="md:hidden" type="button">
+          <button className="md:hidden text-right" type="button">
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

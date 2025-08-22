@@ -6,13 +6,13 @@ type TItem = { quote: string; author: string };
 const ITEMS: TItem[] = [
   {
     quote:
-      "VDM UrbanReg Compliance Solutions Ltd. helped us navigate the complex regulatory landscape in Lagos with ease. Their expertise is unmatched!",
-    author: "John Doe, CEO of Example Corp",
+      "VDM UrbanReg Compliance Solutions helped us navigate the complex regulatory landscape in Lagos with ease. Their expertise is unmatched!",
+    author: "John Ezino, CEO of Mantara Group",
   },
   {
     quote:
       "Thanks to VDM, we were able to secure our building permits without any hassle. Highly recommend their services!",
-    author: "Jane Smith, Project Manager",
+    author: "Olawale Daniel, Project Manager",
   },
   {
     quote:
@@ -159,7 +159,7 @@ export default function Testimonial() {
 
   return (
     <section className="py-20 bg-blue-100/40">
-      <div className="container mx-auto px-4 max-w-[1100px]">
+      <div className="container mx-auto px-6 sm:px-8 md:px-10 max-w-[1100px]">
         <p className="text-center text-slate-500 text-sm tracking-wide">
           TESTIMONIALS
         </p>
@@ -167,7 +167,7 @@ export default function Testimonial() {
           What Our Clients Say
         </h2>
 
-        <div className="relative">
+        <div className="relative mx-10 ml-12 sm:ml-12">
           {/* Left Arrow */}
           <button
             type="button"
@@ -222,14 +222,30 @@ export default function Testimonial() {
             onPointerCancel={onPointerUp}
             className="flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory gap-6 px-1"
           >
+            {/* Main Content */}
             {ITEMS.map((t, i) => (
               <article
                 key={i}
                 className="snap-start flex-none basis-full min-w-full max-w-full md:basis-1/2 md:min-w-[50%] md:max-w-[50%] lg:basis-1/3 lg:min-w-[31.7333%] lg:max-w-[31.7333%] mb-8"
               >
                 <div className="bg-white p-6 rounded-xl shadow-xl h-full">
-                  <p className="text-gray-600 mb-4">&quot;{t.quote}&quot;</p>
-                  <h4 className="font-semibold">- {t.author}</h4>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 32 32"
+                    className="text-amber-700"
+                  >
+                    <path
+                      fill="currentColor"
+                      // fill="#8868ff"
+                      d="M14.505 5.873Q8.6 9.654 8.6 14.98q0 1.657.577 1.657l.396-.107q.467-.18.756-.18q1.692 0 2.825 1.23t1.134 3.036q-.001 1.736-1.225 2.947q-1.224 1.21-2.952 1.21q-2.412 0-3.98-1.983q-1.564-1.98-1.564-4.977q-.001-3.39 1.33-6.203q1.334-2.812 4.068-5.085q2.736-2.271 3.492-2.272q.504 0 .828.486q.324.485.324.845l-.107.288zm12.96 0q-5.905 3.78-5.904 9.108q0 1.657.577 1.657l.396-.107q.467-.18.756-.18q1.656 0 2.807 1.23q1.153 1.228 1.152 3.036q-.001 1.736-1.225 2.947q-1.224 1.21-2.952 1.21q-2.412 0-3.98-1.983q-1.564-1.98-1.564-4.977q-.002-3.426 1.35-6.256q1.35-2.831 4.067-5.067q2.722-2.237 3.475-2.237q.505 0 .83.486q.323.486.323.846z"
+                    />
+                  </svg>
+                  <div className="flex flex-col justify-between h-[90%]">
+                    <p className="text-gray-600 mt-2">&quot;{t.quote}&quot;</p>
+                    <h4 className="font-semibold mb-1">- {t.author}</h4>
+                  </div>
                 </div>
               </article>
             ))}

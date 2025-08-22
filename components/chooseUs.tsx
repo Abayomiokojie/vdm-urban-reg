@@ -3,12 +3,12 @@ const ChooseUs = () => {
     <>
       {/* Why choose US */}
       <section className="py-16 mt-8 mb-8" id="why-choose-us">
-        <div className="container mx-auto px-4 max-w-[1080px]">
+        <div className="container mx-auto px-6 sm:px-8 md:px-10 max-w-[1080px]">
           <p className="text-center text-slate-500 ">OUR VALUE</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Why Choose Us
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 justify-between">
+          <div className="grid mx-auto justify-items-center sm:grid-cols-3 gap-8 sm:justify-between">
             <div className="mx-auto text-center max-w-[280px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -17,9 +17,9 @@ const ChooseUs = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="mx-auto mb-2"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -71,9 +71,9 @@ const ChooseUs = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="mx-auto mb-2"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />

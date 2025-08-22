@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4">
+    <footer className="bg-gray-800 text-white py-4 px-4 md:px-10">
       <div className="container mx-auto text-center">
         <p>&copy; 2025 VDM Urban. All rights reserved.</p>
       </div>

@@ -86,17 +86,32 @@ export default function Contact() {
     >
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center mb-9">
-          <h2 className="text-[2.2rem] tracking-tight mb-2">Get in touch</h2>
-          <p className="text-slate-400">
+          <p className="text-slate-400">CONTACT US</p>
+          <h2 className="text-[2.2rem] tracking-tight mb-2 font-semibold">
+            Get in touch
+          </h2>
+          {/* <p className="text-slate-400">
             Questions, partnerships, or consultations—reach out and the team
             will respond shortly.
-          </p>
+          </p> */}
         </div>
 
-        <div className="grid gap-6 md:[grid-template-columns:1fr_1.2fr]">
+        <div className="grid gap-8 md:gap-6 md:[grid-template-columns:1fr_1.2fr]">
           <aside className="bg-white/5 border border-white/20 rounded-2xl backdrop-blur-md p-6 shadow-lg">
-            <h3 className="text-lg mb-3.5">Contact details</h3>
+            <div className="mb-6">
+              <p className="mb-4 text-[1.7rem] tracking-normal ">
+                {/* Planning new projects or you've got ongoing projects? */}
+                {/* or got ongoing projects */}
+                Want to Learn More?
+              </p>
+              <p className="text-slate-200 ">
+                Reach out for questions, partnerships, or consultations and let
+                us help you navigate the complexities and regulations involved
+                in your diverse projects.
+              </p>
+            </div>
 
+            <h3 className="text-lg mb-3.5">Contact details</h3>
             <ul className="grid gap-3.5 list-none p-0 m-0">
               <li className="grid [grid-template-columns:28px_1fr] items-center gap-3">
                 <IconMail />
@@ -105,6 +120,7 @@ export default function Contact() {
                   aria-label="Send email"
                   className="text-slate-100 hover:underline underline-offset-4 hover:text-white"
                 >
+                  {" "}
                   {EMAIL}
                 </a>
               </li>
