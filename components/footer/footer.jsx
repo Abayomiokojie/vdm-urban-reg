@@ -24,9 +24,9 @@ function FooterWrap() {
     const submitHandler = (e) => {
         e.preventDefault();
         const config = {
-            SecureToken: "b568f446-88da-4206-bd27-7dd1b92e1c35",
-            To: 'webform@quotekong.com',
-            From: 'info@quotekong.com',
+            SecureToken: "b",
+            To: 'webfor@.com',
+            From: 'info.com',
             Subject: `Hi, I'm interested in your services, please reach out to me at: ${formState.email}, Thank you!`
         };
 
@@ -59,20 +59,7 @@ function FooterWrap() {
                         </address>
                     </div>
 
-                    <div className="social">
-                        <a href="https://www.linkedin.com/company/quote-kong">
-                            {/* <img alt="LinkedIn" src={LinkedIn} /> */}
-                        </a>
-                        <a href="https://www.facebook.com/quotekong/">
-                            {/* <img alt="Facebook" src={Facebook} /> */}
-                        </a>
-                        <a href="https://www.instagram.com/quotekong/">
-                            {/* <img alt="Instagram" src={Instagram} /> */}
-                        </a>
-                        <a href="https://www.youtube.com/@nathanseiling8335">
-                            {/* <img alt="Youtube" src={YouTube} /> */}
-                        </a>
-                    </div>
+
                 </div>
 
                 {/* Product */}
@@ -89,7 +76,7 @@ function FooterWrap() {
                     <h4>Company</h4>
                     <a href="/about">About Us </a>
                     <a href="#our-team"> Our Team </a>
-                    <a href="https://quotekong.youcanbook.me/">Book Demo</a>
+                    {/* <a href="https://oucanbook.me/">Book Demo</a> */}
                     <a href="/contact"> Contact Us</a>
                 </div>
 
